@@ -2,10 +2,59 @@
 const EXPORT_HEIGHT = 1600;
 const LOGO_SRC = "data:image/png;base64,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";
 const REDACTION_BLOCKS = 8;
+const FACTIONS = [
+  ["罗德岛", "assets/factions/rhodes-island.png"],
+  ["罗德岛-精英干员", "assets/factions/rhodes-elite.png"],
+  ["巴别塔", "assets/factions/babel.png"],
+  ["莱茵生命", "assets/factions/rhine-lab.png"],
+  ["企鹅物流", "assets/factions/penguin-logistics.png"],
+  ["黑钢国际", "assets/factions/blacksteel.png"],
+  ["喀兰贸易", "assets/factions/karlan-trade.png"],
+  ["深海猎人", "assets/factions/abyssal-hunters.png"],
+  ["拉特兰", "assets/factions/laterano.png"],
+  ["使徒", "assets/factions/followers.png"],
+  ["卡西米尔", "assets/factions/kazimierz.png"],
+  ["红松骑士团", "assets/factions/pinus-sylvestris.png"],
+  ["乌萨斯", "assets/factions/ursus.png"],
+  ["乌萨斯学生自治团", "assets/factions/ursus-students.png"],
+  ["炎", "assets/factions/yan.png"],
+  ["炎-岁", "assets/factions/yan-sui.png"],
+  ["炎-龙门", "assets/factions/yan-lungmen.png"],
+  ["龙门近卫局", "assets/factions/lungmen-guard.png"],
+  ["维多利亚", "assets/factions/victoria.png"],
+  ["格拉斯哥帮", "assets/factions/glasgow.png"],
+  ["深池", "assets/factions/dublinn.png"],
+  ["塔拉", "assets/factions/tara.png"],
+  ["伊比利亚", "assets/factions/iberia.png"],
+  ["阿戈尔", "assets/factions/aegir.png"],
+  ["哥伦比亚", "assets/factions/columbia.png"],
+  ["叙拉古", "assets/factions/siracusa.png"],
+  ["萨米", "assets/factions/sami.png"],
+  ["萨尔贡", "assets/factions/sargon.png"],
+  ["玻利瓦尔", "assets/factions/bolivar.png"],
+  ["雷姆必拓", "assets/factions/rim-billiton.png"],
+  ["谢拉格", "assets/factions/kjerag.png"],
+  ["汐斯塔", "assets/factions/siesta.png"],
+  ["米诺斯", "assets/factions/minos.png"],
+  ["莱塔尼亚", "assets/factions/leithanien.png"],
+  ["东", "assets/factions/higashi.png"],
+  ["鲤氏侦探事务所", "assets/factions/lee-detective.png"],
+  ["S.W.E.E.P.", "assets/factions/sweep.png"],
+  ["行动组A4", "assets/factions/op-a4.png"],
+  ["行动预备组A1", "assets/factions/reserve-a1.png"],
+  ["行动预备组A4", "assets/factions/reserve-a4.png"],
+  ["行动预备组A6", "assets/factions/reserve-a6.png"],
+  ["贾维团伙", "assets/factions/chiave-gang.png"],
+  ["整合运动", "assets/factions/reunion.png"],
+  ["彩虹小队", "assets/factions/rainbow.png"],
+  ["莱欧斯小队", "assets/factions/laios-party.png"],
+];
 
 const state = {
   avatarImage: "",
   showcaseImage: "",
+  factionName: FACTIONS[0][0],
+  factionLogo: FACTIONS[0][1],
   gender: "未填写",
   age: "",
   height: "",
@@ -19,6 +68,7 @@ const state = {
 const fields = {
   avatarInput: document.querySelector("#avatarInput"),
   showcaseInput: document.querySelector("#showcaseInput"),
+  factionSelect: document.querySelector("#factionSelect"),
   gender: document.querySelector("#gender"),
   age: document.querySelector("#age"),
   height: document.querySelector("#height"),
@@ -32,8 +82,10 @@ const fields = {
 const preview = {
   avatar: document.querySelector("#avatarPreview"),
   avatarBox: document.querySelector(".avatar-box"),
-  showcase: document.querySelectorAll(".showcase-panel img"),
+  showcase: document.querySelector("#showcasePreview"),
   showcaseBox: document.querySelector(".showcase-box"),
+  faction: document.querySelector("#factionPreview"),
+  factionName: document.querySelector("#factionNamePreview"),
   gender: document.querySelector("#genderPreview"),
   age: document.querySelector("#agePreview"),
   height: document.querySelector("#heightPreview"),
@@ -50,11 +102,20 @@ const counters = {
   recruitmentExpectation: document.querySelector("#expectationCount"),
 };
 
+populateFactionSelect();
+
 ["gender", "age", "height", "weight", "ipAddress", "intro", "favoriteOperator", "recruitmentExpectation"].forEach((id) => {
   fields[id].addEventListener("input", () => {
     state[id] = fields[id].value.trim();
     render();
   });
+});
+
+fields.factionSelect.addEventListener("input", () => {
+  const faction = FACTIONS.find((item) => item[1] === fields.factionSelect.value) || FACTIONS[0];
+  state.factionName = faction[0];
+  state.factionLogo = faction[1];
+  render();
 });
 
 fields.avatarInput.addEventListener("change", () => loadImageFile(fields.avatarInput, "avatarImage"));
@@ -72,6 +133,8 @@ document.querySelector("#resetButton").addEventListener("click", () => {
   Object.assign(state, {
     avatarImage: "",
     showcaseImage: "",
+    factionName: FACTIONS[0][0],
+    factionLogo: FACTIONS[0][1],
     gender: "未填写",
     age: "",
     height: "",
@@ -83,7 +146,7 @@ document.querySelector("#resetButton").addEventListener("click", () => {
   });
 
   Object.entries(fields).forEach(([id, field]) => {
-    field.value = field.type === "file" ? "" : id === "gender" ? "未填写" : "";
+    field.value = field.type === "file" ? "" : id === "gender" ? "未填写" : id === "factionSelect" ? FACTIONS[0][1] : "";
   });
 
   render();
@@ -117,6 +180,9 @@ function loadImageFile(input, key) {
 function render() {
   setImage(preview.avatar, preview.avatarBox, state.avatarImage);
   setImage(preview.showcase, preview.showcaseBox, state.showcaseImage);
+  preview.faction.src = state.factionLogo;
+  preview.faction.alt = state.factionName;
+  preview.factionName.textContent = state.factionName;
 
   preview.gender.textContent = state.gender || "未填写";
   preview.ip.textContent = state.ipAddress || "未登记 IP";
@@ -132,17 +198,22 @@ function render() {
   counters.recruitmentExpectation.textContent = `${state.recruitmentExpectation.length}/90`;
 }
 
+function populateFactionSelect() {
+  FACTIONS.forEach(([name, source]) => {
+    const option = document.createElement("option");
+    option.value = source;
+    option.textContent = name;
+    fields.factionSelect.appendChild(option);
+  });
+  fields.factionSelect.value = state.factionLogo;
+}
+
 function setImage(img, box, source) {
-  const images = img instanceof NodeList ? Array.from(img) : [img];
   if (source) {
-    images.forEach((image) => {
-      image.src = source;
-    });
+    img.src = source;
     box.classList.add("has-image");
   } else {
-    images.forEach((image) => {
-      image.removeAttribute("src");
-    });
+    img.removeAttribute("src");
     box.classList.remove("has-image");
   }
 }
@@ -345,27 +416,33 @@ function drawSection(ctx, x, y, w, h, label, text, fontSize) {
 }
 
 async function drawShowcase(ctx) {
-  const leftRect = { x: 72, y: 1244, w: 444, h: 236 };
-  const rightRect = { x: 564, y: 1244, w: 444, h: 236 };
-
-  if (!state.showcaseImage) {
-    await drawImageBox(ctx, "", leftRect, "GAME CARD", "#111820", "#55c7ee", true);
-    await drawImageBox(ctx, "", rightRect, "DISPLAY IMAGE", "#111820", "#55c7ee", true);
-    return;
-  }
-
-  const image = await loadCanvasImage(state.showcaseImage);
-  drawShowcasePanel(ctx, image, leftRect, 0.25);
-  drawShowcasePanel(ctx, image, rightRect, 0.75);
+  await drawImageBox(ctx, state.showcaseImage, { x: 72, y: 1244, w: 532, h: 236 }, "DISPLAY IMAGE", "#111820", "#55c7ee", true);
+  await drawFactionPanel(ctx, { x: 632, y: 1244, w: 376, h: 236 });
 }
 
-function drawShowcasePanel(ctx, image, rect, positionX) {
+async function drawFactionPanel(ctx, rect) {
   ctx.fillStyle = "#111820";
   ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
-  drawCoverImage(ctx, image, rect.x, rect.y, rect.w, rect.h, positionX);
   ctx.strokeStyle = "#55c7ee";
   ctx.lineWidth = 5;
   ctx.strokeRect(rect.x, rect.y, rect.w, rect.h);
+
+  ctx.strokeStyle = "rgba(85,199,238,0.45)";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(rect.x + 18, rect.y + 18, rect.w - 36, rect.h - 36);
+
+  ctx.fillStyle = "#55c7ee";
+  ctx.font = "900 22px Arial";
+  ctx.fillText("FACTION BADGE", rect.x + 34, rect.y + 48);
+
+  const logo = await loadCanvasImage(state.factionLogo);
+  drawContainImage(ctx, logo, rect.x + 70, rect.y + 68, rect.w - 140, 104);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = fitFont(ctx, state.factionName, rect.w - 72, 28, "Microsoft YaHei, Arial");
+  ctx.textAlign = "center";
+  ctx.fillText(state.factionName, rect.x + rect.w / 2, rect.y + 208);
+  ctx.textAlign = "left";
 }
 
 function drawFooter(ctx) {
