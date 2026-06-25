@@ -344,11 +344,21 @@ button:hover {
 }
 
 .id-label {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
   margin: 0;
   color: var(--ink);
   font-size: 42px;
   font-weight: 900;
   line-height: 0.95;
+}
+
+.id-label span {
+  min-width: 0;
+  font-size: 28px;
+  line-height: 1;
+  word-break: break-word;
 }
 
 .identity-block h3 {
