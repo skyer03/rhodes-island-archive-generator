@@ -334,7 +334,7 @@ button:hover {
 
 .identity-block {
   min-width: 0;
-  padding: 28px 44px;
+  padding: 22px 38px;
   border: 5px solid var(--ink);
   background: rgba(255, 255, 255, 0.96);
   color: var(--ink);
@@ -344,24 +344,24 @@ button:hover {
 .id-label {
   margin: 0;
   color: var(--ink);
-  font-size: 62px;
+  font-size: 42px;
   font-weight: 900;
   line-height: 0.95;
 }
 
 .identity-block h3 {
-  min-height: 44px;
-  margin: 10px 0 18px;
-  border-bottom: 5px solid var(--ink);
+  min-height: 28px;
+  margin: 4px 0 8px;
+  border-bottom: 3px solid var(--ink);
   color: var(--ink);
-  font-size: 34px;
-  line-height: 1.15;
+  font-size: 22px;
+  line-height: 1.05;
   word-break: break-word;
 }
 
 .identity-block h3 span {
   color: var(--muted);
-  font-size: 26px;
+  font-size: 17px;
 }
 
 .identity-block h3 em {
@@ -370,41 +370,44 @@ button:hover {
 
 dl {
   display: grid;
-  gap: 8px;
+  gap: 1px;
   margin: 0;
 }
 
 dl div {
   display: grid;
-  grid-template-columns: 168px 1fr;
+  grid-template-columns: 120px 1fr;
   align-items: center;
   border-bottom: 2px solid var(--line);
-  padding-bottom: 8px;
+  min-height: 26px;
+  padding-bottom: 2px;
 }
 
 dt {
   color: var(--muted);
-  font-size: 25px;
+  font-size: 17px;
   font-weight: 900;
+  line-height: 1;
 }
 
 dd {
   margin: 0;
   color: var(--ink);
-  font-size: 34px;
+  font-size: 21px;
   font-weight: 900;
+  line-height: 1;
 }
 
 .redacted {
   display: flex;
-  gap: 12px;
+  gap: 7px;
   align-items: center;
-  min-height: 20px;
+  min-height: 16px;
 }
 
 .redacted span {
-  width: 30px;
-  height: 30px;
+  width: 17px;
+  height: 17px;
   background: currentColor;
 }
 
