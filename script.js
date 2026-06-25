@@ -236,33 +236,36 @@ async function drawHeader(ctx) {
 }
 
 async function drawMainBlock(ctx) {
-  const avatarRect = { x: 72, y: 280, w: 292, h: 326 };
+  const avatarRect = { x: 72, y: 280, w: 250, h: 250 };
   await drawImageBox(ctx, state.avatarImage, avatarRect, "OPERATOR\nPHOTO", "#e4ebef", "#07090c", false);
 
   ctx.fillStyle = "#ffffff";
-  ctx.fillRect(398, 280, 610, 326);
+  ctx.fillRect(356, 280, 652, 250);
   ctx.strokeStyle = "#07090c";
   ctx.lineWidth = 5;
-  ctx.strokeRect(398, 280, 610, 326);
+  ctx.strokeRect(356, 280, 652, 250);
 
   ctx.fillStyle = "#07090c";
-  ctx.font = "900 74px Arial";
-  ctx.fillText("ID:", 432, 356);
+  ctx.font = "900 62px Arial";
+  ctx.fillText("ID:", 390, 338);
 
+  ctx.fillStyle = "#657782";
+  ctx.font = "900 26px Arial";
+  ctx.fillText("IP:", 390, 390);
   ctx.fillStyle = "#07090c";
-  ctx.font = fitFont(ctx, state.ipAddress || "未登记 IP", 520, 42, "Microsoft YaHei, Arial");
-  drawWrappedText(ctx, state.ipAddress || "未登记 IP", 432, 420, 520, 52, 1.15);
+  ctx.font = fitFont(ctx, state.ipAddress || "未登记 IP", 480, 34, "Microsoft YaHei, Arial");
+  drawWrappedText(ctx, state.ipAddress || "未登记 IP", 438, 390, 480, 42, 1.15);
 
   ctx.strokeStyle = "#07090c";
   ctx.lineWidth = 5;
   ctx.beginPath();
-  ctx.moveTo(432, 456);
-  ctx.lineTo(966, 456);
+  ctx.moveTo(390, 420);
+  ctx.lineTo(966, 420);
   ctx.stroke();
 
-  drawInfoRow(ctx, "GENDER", state.gender || "未填写", 432, 512, false, false);
-  drawInfoRow(ctx, "HEIGHT", state.height, 432, 574, true, false);
-  drawInfoRow(ctx, "WEIGHT", state.weight, 432, 636, true, false);
+  drawInfoRow(ctx, "GENDER", state.gender || "未填写", 390, 462, false, false);
+  drawInfoRow(ctx, "HEIGHT", state.height, 390, 508, true, false);
+  drawInfoRow(ctx, "WEIGHT", state.weight, 390, 554, true, false);
 }
 
 function drawInfoRow(ctx, label, value, x, y, redactWhenEmpty, dark) {
@@ -288,28 +291,28 @@ function drawInfoRow(ctx, label, value, x, y, redactWhenEmpty, dark) {
 }
 
 function drawTextSections(ctx) {
-  drawSection(ctx, 72, 660, 936, 300, "SELF INTRODUCTION", state.intro || "暂无自我介绍。", 36);
+  drawSection(ctx, 72, 580, 936, 352, "SELF INTRODUCTION", state.intro || "暂无自我介绍。", 36);
 
   ctx.fillStyle = "#ffffff";
-  ctx.fillRect(72, 1000, 414, 226);
-  ctx.fillRect(526, 1000, 482, 226);
+  ctx.fillRect(72, 970, 414, 238);
+  ctx.fillRect(526, 970, 482, 238);
   ctx.strokeStyle = "#07090c";
   ctx.lineWidth = 5;
-  ctx.strokeRect(72, 1000, 414, 226);
-  ctx.strokeRect(526, 1000, 482, 226);
+  ctx.strokeRect(72, 970, 414, 238);
+  ctx.strokeRect(526, 970, 482, 238);
 
   ctx.fillStyle = "#55c7ee";
   ctx.font = "900 24px Arial";
-  ctx.fillText("PRIMARY OPERATOR", 104, 1054);
-  ctx.fillText("RECRUITMENT TARGET", 558, 1054);
+  ctx.fillText("PRIMARY OPERATOR", 104, 1024);
+  ctx.fillText("RECRUITMENT TARGET", 558, 1024);
 
   ctx.fillStyle = "#07090c";
   ctx.font = fitFont(ctx, state.favoriteOperator || "暂未填写", 330, 48, "Microsoft YaHei, Arial");
-  drawWrappedText(ctx, state.favoriteOperator || "暂未填写", 104, 1120, 330, 70, 1.25);
+  drawWrappedText(ctx, state.favoriteOperator || "暂未填写", 104, 1090, 330, 90, 1.25);
 
   ctx.fillStyle = "#15191d";
   ctx.font = "32px Microsoft YaHei, Arial";
-  drawWrappedText(ctx, state.recruitmentExpectation || "暂未填写招聘对象期望。", 558, 1116, 390, 90, 1.45);
+  drawWrappedText(ctx, state.recruitmentExpectation || "暂未填写招聘对象期望。", 558, 1086, 390, 110, 1.45);
 }
 
 function drawSection(ctx, x, y, w, h, label, text, fontSize) {
@@ -329,7 +332,7 @@ function drawSection(ctx, x, y, w, h, label, text, fontSize) {
 }
 
 async function drawShowcase(ctx) {
-  await drawImageBox(ctx, state.showcaseImage, { x: 72, y: 1266, w: 936, h: 172 }, "GAME CARD / DISPLAY IMAGE", "#111820", "#55c7ee", true);
+  await drawImageBox(ctx, state.showcaseImage, { x: 72, y: 1244, w: 936, h: 230 }, "GAME CARD / DISPLAY IMAGE", "#111820", "#55c7ee", true);
 }
 
 function drawFooter(ctx) {
