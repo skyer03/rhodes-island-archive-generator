@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>罗德岛人事档案生成器</title>
-    <link rel="stylesheet" href="./styles.css?v=20260625-a1-faction-badge" />
+    <link rel="stylesheet" href="./styles.css?v=20260625-a1-personal-id" />
   </head>
   <body>
     <main class="app-shell">
@@ -39,6 +39,11 @@
               <option value="非公开">非公开</option>
               <option value="其他">其他</option>
             </select>
+          </label>
+
+          <label class="field">
+            <span>个人 ID</span>
+            <input id="personalId" type="text" maxlength="20" placeholder="例如：Doctor-1096" />
           </label>
 
           <label class="field">
@@ -106,7 +111,7 @@
               </div>
 
               <div class="identity-block">
-                <p class="id-label">ID:</p>
+                <p class="id-label">ID:<span id="idPreview">未登记 ID</span></p>
                 <h3><span>IP:</span> <em id="ipPreview">未登记 IP</em></h3>
                 <dl>
                   <div>
@@ -166,6 +171,6 @@
       </section>
     </main>
 
-    <script src="./script.js?v=20260625-a1-faction-badge"></script>
+    <script src="./script.js?v=20260625-a1-personal-id"></script>
   </body>
 </html>
