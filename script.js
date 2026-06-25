@@ -7,6 +7,7 @@ const state = {
   avatarImage: "",
   showcaseImage: "",
   gender: "未填写",
+  age: "",
   height: "",
   weight: "",
   ipAddress: "",
@@ -19,6 +20,7 @@ const fields = {
   avatarInput: document.querySelector("#avatarInput"),
   showcaseInput: document.querySelector("#showcaseInput"),
   gender: document.querySelector("#gender"),
+  age: document.querySelector("#age"),
   height: document.querySelector("#height"),
   weight: document.querySelector("#weight"),
   ipAddress: document.querySelector("#ipAddress"),
@@ -33,6 +35,7 @@ const preview = {
   showcase: document.querySelector("#showcasePreview"),
   showcaseBox: document.querySelector(".showcase-box"),
   gender: document.querySelector("#genderPreview"),
+  age: document.querySelector("#agePreview"),
   height: document.querySelector("#heightPreview"),
   weight: document.querySelector("#weightPreview"),
   ip: document.querySelector("#ipPreview"),
@@ -47,7 +50,7 @@ const counters = {
   recruitmentExpectation: document.querySelector("#expectationCount"),
 };
 
-["gender", "height", "weight", "ipAddress", "intro", "favoriteOperator", "recruitmentExpectation"].forEach((id) => {
+["gender", "age", "height", "weight", "ipAddress", "intro", "favoriteOperator", "recruitmentExpectation"].forEach((id) => {
   fields[id].addEventListener("input", () => {
     state[id] = fields[id].value.trim();
     render();
@@ -70,6 +73,7 @@ document.querySelector("#resetButton").addEventListener("click", () => {
     avatarImage: "",
     showcaseImage: "",
     gender: "未填写",
+    age: "",
     height: "",
     weight: "",
     ipAddress: "",
@@ -116,6 +120,7 @@ function render() {
 
   preview.gender.textContent = state.gender || "未填写";
   preview.ip.textContent = state.ipAddress || "未登记 IP";
+  setMaybeRedacted(preview.age, state.age);
   setMaybeRedacted(preview.height, state.height);
   setMaybeRedacted(preview.weight, state.weight);
   preview.intro.textContent = state.intro || "暂无自我介绍。";
@@ -246,48 +251,49 @@ async function drawMainBlock(ctx) {
   ctx.strokeRect(356, 280, 652, 250);
 
   ctx.fillStyle = "#07090c";
-  ctx.font = "900 62px Arial";
-  ctx.fillText("ID:", 390, 338);
+  ctx.font = "900 42px Arial";
+  ctx.fillText("ID:", 390, 320);
 
   ctx.fillStyle = "#657782";
-  ctx.font = "900 26px Arial";
-  ctx.fillText("IP:", 390, 390);
+  ctx.font = "900 17px Arial";
+  ctx.fillText("IP:", 390, 350);
   ctx.fillStyle = "#07090c";
-  ctx.font = fitFont(ctx, state.ipAddress || "未登记 IP", 480, 34, "Microsoft YaHei, Arial");
-  drawWrappedText(ctx, state.ipAddress || "未登记 IP", 438, 390, 480, 42, 1.15);
+  ctx.font = fitFont(ctx, state.ipAddress || "未登记 IP", 500, 22, "Microsoft YaHei, Arial");
+  drawWrappedText(ctx, state.ipAddress || "未登记 IP", 426, 350, 500, 26, 1.05);
 
   ctx.strokeStyle = "#07090c";
-  ctx.lineWidth = 5;
+  ctx.lineWidth = 3;
   ctx.beginPath();
-  ctx.moveTo(390, 420);
-  ctx.lineTo(966, 420);
+  ctx.moveTo(390, 374);
+  ctx.lineTo(966, 374);
   ctx.stroke();
 
-  drawInfoRow(ctx, "GENDER", state.gender || "未填写", 390, 462, false, false);
-  drawInfoRow(ctx, "HEIGHT", state.height, 390, 508, true, false);
-  drawInfoRow(ctx, "WEIGHT", state.weight, 390, 554, true, false);
+  drawInfoRow(ctx, "GENDER", state.gender || "未填写", 390, 404, false, false);
+  drawInfoRow(ctx, "AGE", state.age, 390, 434, true, false);
+  drawInfoRow(ctx, "HEIGHT", state.height, 390, 464, true, false);
+  drawInfoRow(ctx, "WEIGHT", state.weight, 390, 494, true, false);
 }
 
 function drawInfoRow(ctx, label, value, x, y, redactWhenEmpty, dark) {
   ctx.fillStyle = dark ? "#8aa7b3" : "#657782";
-  ctx.font = "900 22px Arial";
+  ctx.font = "900 17px Arial";
   ctx.fillText(label, x, y);
 
   ctx.strokeStyle = dark ? "rgba(85,199,238,0.24)" : "#d7e0e5";
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.moveTo(x, y + 22);
-  ctx.lineTo(x + 500, y + 22);
+  ctx.moveTo(x, y + 15);
+  ctx.lineTo(x + 500, y + 15);
   ctx.stroke();
 
   if (redactWhenEmpty && !value) {
-    drawRedactionBlocks(ctx, x + 170, y - 22, 8, 22, 8, dark ? "#ffffff" : "#07090c");
+    drawRedactionBlocks(ctx, x + 120, y - 15, 8, 17, 7, dark ? "#ffffff" : "#07090c");
     return;
   }
 
   ctx.fillStyle = dark ? "#ffffff" : "#07090c";
-  ctx.font = "900 32px Microsoft YaHei, Arial";
-  ctx.fillText(value || "未填写", x + 170, y);
+  ctx.font = "900 21px Microsoft YaHei, Arial";
+  ctx.fillText(value || "未填写", x + 120, y);
 }
 
 function drawTextSections(ctx) {
