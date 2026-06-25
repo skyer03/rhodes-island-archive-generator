@@ -77,69 +77,71 @@
       </section>
 
       <section class="preview-panel" aria-label="档案预览">
-        <article id="recordCard" class="record-card">
-          <div class="record-bg-code">PROFILE</div>
-          <header class="record-header">
-            <img class="rhodes-logo" src="./assets/rhodes-logo.png" alt="罗德岛标志" />
-            <div class="record-title">
-              <p>RHODES ISLAND :// PROFILE</p>
-              <h2>人事档案</h2>
+        <div class="preview-frame">
+          <article id="recordCard" class="record-card">
+            <div class="record-bg-code">PROFILE</div>
+            <header class="record-header">
+              <img class="rhodes-logo" src="./assets/rhodes-logo.png" alt="罗德岛标志" />
+              <div class="record-title">
+                <p>RHODES ISLAND :// PROFILE</p>
+                <h2>人事档案</h2>
+              </div>
+              <strong>NO.1096</strong>
+            </header>
+
+            <div class="record-main">
+              <div class="avatar-box">
+                <img id="avatarPreview" alt="" />
+                <span id="avatarPlaceholder">OPERATOR<br />PHOTO</span>
+              </div>
+
+              <div class="identity-block">
+                <p class="record-label">CODENAME</p>
+                <h3 id="ipPreview">未登记 IP</h3>
+                <dl>
+                  <div>
+                    <dt>GENDER</dt>
+                    <dd id="genderPreview">未填写</dd>
+                  </div>
+                  <div>
+                    <dt>HEIGHT</dt>
+                    <dd id="heightPreview" class="redacted"></dd>
+                  </div>
+                  <div>
+                    <dt>WEIGHT</dt>
+                    <dd id="weightPreview" class="redacted"></dd>
+                  </div>
+                </dl>
+              </div>
             </div>
-            <strong>NO.1096</strong>
-          </header>
 
-          <div class="record-main">
-            <div class="avatar-box">
-              <img id="avatarPreview" alt="" />
-              <span id="avatarPlaceholder">OPERATOR<br />PHOTO</span>
-            </div>
+            <section class="record-section intro-section">
+              <p class="record-label">SELF INTRODUCTION</p>
+              <p id="introPreview" class="body-copy">暂无自我介绍。</p>
+            </section>
 
-            <div class="identity-block">
-              <p class="record-label">CODENAME</p>
-              <h3 id="ipPreview">未登记 IP</h3>
-              <dl>
-                <div>
-                  <dt>GENDER</dt>
-                  <dd id="genderPreview">未填写</dd>
-                </div>
-                <div>
-                  <dt>HEIGHT</dt>
-                  <dd id="heightPreview" class="redacted"></dd>
-                </div>
-                <div>
-                  <dt>WEIGHT</dt>
-                  <dd id="weightPreview" class="redacted"></dd>
-                </div>
-              </dl>
-            </div>
-          </div>
+            <section class="record-section split-section">
+              <div>
+                <p class="record-label">PRIMARY OPERATOR</p>
+                <p id="favoritePreview" class="strong-copy">暂未填写</p>
+              </div>
+              <div>
+                <p class="record-label">RECRUITMENT TARGET</p>
+                <p id="expectationPreview" class="body-copy">暂未填写招聘对象期望。</p>
+              </div>
+            </section>
 
-          <section class="record-section intro-section">
-            <p class="record-label">SELF INTRODUCTION</p>
-            <p id="introPreview" class="body-copy">暂无自我介绍。</p>
-          </section>
+            <section class="showcase-box">
+              <img id="showcasePreview" alt="" />
+              <span id="showcasePlaceholder">GAME CARD / DISPLAY IMAGE</span>
+            </section>
 
-          <section class="record-section split-section">
-            <div>
-              <p class="record-label">PRIMARY OPERATOR</p>
-              <p id="favoritePreview" class="strong-copy">暂未填写</p>
-            </div>
-            <div>
-              <p class="record-label">RECRUITMENT TARGET</p>
-              <p id="expectationPreview" class="body-copy">暂未填写招聘对象期望。</p>
-            </div>
-          </section>
-
-          <section class="showcase-box">
-            <img id="showcasePreview" alt="" />
-            <span id="showcasePlaceholder">GAME CARD / DISPLAY IMAGE</span>
-          </section>
-
-          <footer class="record-footer">
-            <span>LOCAL ARCHIVE ONLY</span>
-            <span>DATA EXPUNGED WHEN EMPTY</span>
-          </footer>
-        </article>
+            <footer class="record-footer">
+              <span>LOCAL ARCHIVE ONLY</span>
+              <span>DATA EXPUNGED WHEN EMPTY</span>
+            </footer>
+          </article>
+        </div>
       </section>
     </main>
 

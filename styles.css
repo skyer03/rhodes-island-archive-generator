@@ -169,13 +169,19 @@ button:hover {
   min-width: 0;
 }
 
-.record-card {
-  position: relative;
+.preview-frame {
   width: min(100%, 540px);
   aspect-ratio: 1080 / 1600;
+  position: relative;
+}
+
+.record-card {
+  position: relative;
+  width: 1080px;
+  height: 1600px;
   overflow: hidden;
-  padding: 36px;
-  border: 10px solid var(--ink);
+  padding: 58px;
+  border: 24px solid var(--ink);
   background:
     linear-gradient(152deg, transparent 0 13%, rgba(7, 9, 12, 0.05) 13.2% 14.2%, transparent 14.4%),
     linear-gradient(152deg, transparent 0 21%, rgba(85, 199, 238, 0.18) 21.2% 22%, transparent 22.2%),
@@ -184,13 +190,15 @@ button:hover {
     var(--paper);
   background-size: 100% 100%, 100% 100%, 100% 100%, 100% 34px, auto;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.36);
+  transform: scale(0.5);
+  transform-origin: top left;
 }
 
 .record-card::before {
   content: "";
   position: absolute;
-  inset: 16px;
-  border: 2px solid var(--blue);
+  inset: 44px;
+  border: 4px solid var(--blue);
   pointer-events: none;
   z-index: 3;
 }
@@ -198,10 +206,10 @@ button:hover {
 .record-card::after {
   content: "";
   position: absolute;
-  left: 36px;
-  top: 36px;
-  width: 330px;
-  height: 76px;
+  left: 58px;
+  top: 58px;
+  width: 362px;
+  height: 78px;
   background: var(--ink);
   clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
   z-index: 0;
@@ -230,14 +238,14 @@ button:hover {
 }
 
 .record-header {
-  min-height: 150px;
-  padding-bottom: 16px;
-  border-bottom: 7px solid var(--ink);
+  min-height: 178px;
+  padding-bottom: 18px;
+  border-bottom: 9px solid var(--ink);
 }
 
 .rhodes-logo {
-  width: 118px;
-  height: 118px;
+  width: 132px;
+  height: 132px;
   flex: 0 0 auto;
   object-fit: contain;
   background: var(--ink);
@@ -252,22 +260,22 @@ button:hover {
 .record-label {
   margin: 0;
   color: var(--blue);
-  font-size: 12px;
+  font-size: 24px;
   font-weight: 900;
 }
 
 .record-header h2 {
-  margin: 5px 0 0;
+  margin: 8px 0 0;
   color: var(--ink);
-  font-size: 32px;
+  font-size: 58px;
   line-height: 1;
 }
 
 .record-header strong {
-  padding: 8px 10px;
+  padding: 16px 18px;
   background: var(--yellow);
   color: var(--ink);
-  font-size: 12px;
+  font-size: 26px;
 }
 
 .record-main {
@@ -275,8 +283,8 @@ button:hover {
   z-index: 2;
   display: grid;
   grid-template-columns: 30% 1fr;
-  gap: 18px;
-  margin-top: 20px;
+  gap: 34px;
+  margin-top: 34px;
 }
 
 .avatar-box,
@@ -285,7 +293,7 @@ button:hover {
   overflow: hidden;
   display: grid;
   place-items: center;
-  border: 3px solid var(--ink);
+  border: 5px solid var(--ink);
   background:
     linear-gradient(135deg, rgba(85, 199, 238, 0.18) 25%, transparent 25% 50%, rgba(85, 199, 238, 0.18) 50% 75%, transparent 75%),
     #e4ebef;
@@ -318,7 +326,7 @@ button:hover {
 .showcase-box span {
   padding: 12px;
   color: #6c7b84;
-  font-size: 12px;
+  font-size: 28px;
   font-weight: 900;
   line-height: 1.35;
   text-align: center;
@@ -326,73 +334,73 @@ button:hover {
 
 .identity-block {
   min-width: 0;
-  padding: 20px 22px;
-  border: 4px solid var(--blue);
+  padding: 44px 52px;
+  border: 5px solid var(--blue);
   background: rgba(17, 24, 32, 0.98);
   color: #fff;
 }
 
 .identity-block h3 {
-  min-height: 64px;
-  margin: 8px 0 14px;
-  border-bottom: 3px solid var(--blue);
+  min-height: 106px;
+  margin: 18px 0 28px;
+  border-bottom: 5px solid var(--blue);
   color: #fff;
-  font-size: clamp(25px, 4vw, 40px);
+  font-size: 74px;
   line-height: 1.08;
   word-break: break-word;
 }
 
 dl {
   display: grid;
-  gap: 7px;
+  gap: 14px;
   margin: 0;
 }
 
 dl div {
   display: grid;
-  grid-template-columns: 82px 1fr;
+  grid-template-columns: 168px 1fr;
   align-items: center;
   border-bottom: 1px solid rgba(85, 199, 238, 0.26);
-  padding-bottom: 7px;
+  padding-bottom: 14px;
 }
 
 dt {
   color: #8aa7b3;
-  font-size: 12px;
+  font-size: 25px;
   font-weight: 900;
 }
 
 dd {
   margin: 0;
   color: #fff;
-  font-size: 18px;
+  font-size: 34px;
   font-weight: 900;
 }
 
 .redacted {
   display: flex;
-  gap: 6px;
+  gap: 12px;
   align-items: center;
   min-height: 20px;
 }
 
 .redacted span {
-  width: 16px;
-  height: 16px;
+  width: 30px;
+  height: 30px;
   background: currentColor;
 }
 
 .record-section {
   position: relative;
   z-index: 2;
-  margin-top: 18px;
-  padding: 18px;
-  border: 3px solid var(--ink);
+  margin-top: 34px;
+  padding: 32px;
+  border: 5px solid var(--ink);
   background: rgba(255, 255, 255, 0.94);
 }
 
 .intro-section {
-  min-height: 252px;
+  min-height: 300px;
 }
 
 .body-copy,
@@ -404,26 +412,26 @@ dd {
 
 .body-copy {
   color: #15191d;
-  font-size: 17px;
+  font-size: 34px;
 }
 
 .strong-copy {
-  font-size: 23px;
+  font-size: 46px;
   font-weight: 900;
 }
 
 .split-section {
   display: grid;
   grid-template-columns: 1fr 1.35fr;
-  gap: 16px;
-  min-height: 164px;
+  gap: 32px;
+  min-height: 226px;
 }
 
 .showcase-box {
   position: relative;
   z-index: 2;
-  height: 164px;
-  margin-top: 18px;
+  height: 172px;
+  margin-top: 34px;
   border-color: var(--blue);
   background-color: var(--panel);
 }
@@ -434,13 +442,13 @@ dd {
 
 .record-footer {
   position: absolute;
-  left: 36px;
-  right: 36px;
-  bottom: 24px;
-  padding-top: 10px;
-  border-top: 5px solid var(--ink);
+  left: 58px;
+  right: 58px;
+  bottom: 36px;
+  padding-top: 18px;
+  border-top: 8px solid var(--ink);
   color: var(--muted);
-  font-size: 11px;
+  font-size: 20px;
   font-weight: 900;
 }
 
