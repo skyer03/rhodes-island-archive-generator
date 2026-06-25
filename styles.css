@@ -282,7 +282,7 @@ button:hover {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 30% 1fr;
+  grid-template-columns: 250px 1fr;
   gap: 34px;
   margin-top: 34px;
 }
@@ -301,7 +301,7 @@ button:hover {
 }
 
 .avatar-box {
-  aspect-ratio: 1 / 1.12;
+  aspect-ratio: 1 / 1;
 }
 
 .avatar-box img,
@@ -334,33 +334,43 @@ button:hover {
 
 .identity-block {
   min-width: 0;
-  padding: 34px 46px;
+  padding: 28px 44px;
   border: 5px solid var(--ink);
   background: rgba(255, 255, 255, 0.96);
   color: var(--ink);
+  height: 250px;
 }
 
 .id-label {
   margin: 0;
   color: var(--ink);
-  font-size: 78px;
+  font-size: 62px;
   font-weight: 900;
   line-height: 0.95;
 }
 
 .identity-block h3 {
-  min-height: 54px;
-  margin: 14px 0 26px;
+  min-height: 44px;
+  margin: 10px 0 18px;
   border-bottom: 5px solid var(--ink);
   color: var(--ink);
-  font-size: 42px;
+  font-size: 34px;
   line-height: 1.15;
   word-break: break-word;
 }
 
+.identity-block h3 span {
+  color: var(--muted);
+  font-size: 26px;
+}
+
+.identity-block h3 em {
+  font-style: normal;
+}
+
 dl {
   display: grid;
-  gap: 14px;
+  gap: 8px;
   margin: 0;
 }
 
@@ -369,7 +379,7 @@ dl div {
   grid-template-columns: 168px 1fr;
   align-items: center;
   border-bottom: 2px solid var(--line);
-  padding-bottom: 14px;
+  padding-bottom: 8px;
 }
 
 dt {
@@ -408,7 +418,7 @@ dd {
 }
 
 .intro-section {
-  min-height: 300px;
+  min-height: 352px;
 }
 
 .body-copy,
@@ -432,13 +442,13 @@ dd {
   display: grid;
   grid-template-columns: 1fr 1.35fr;
   gap: 32px;
-  min-height: 226px;
+  min-height: 238px;
 }
 
 .showcase-box {
   position: relative;
   z-index: 2;
-  height: 172px;
+  height: 230px;
   margin-top: 34px;
   border-color: var(--blue);
   background-color: var(--panel);
