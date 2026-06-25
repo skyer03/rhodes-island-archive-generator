@@ -32,7 +32,7 @@ const fields = {
 const preview = {
   avatar: document.querySelector("#avatarPreview"),
   avatarBox: document.querySelector(".avatar-box"),
-  showcase: document.querySelector("#showcasePreview"),
+  showcase: document.querySelectorAll(".showcase-panel img"),
   showcaseBox: document.querySelector(".showcase-box"),
   gender: document.querySelector("#genderPreview"),
   age: document.querySelector("#agePreview"),
@@ -133,11 +133,16 @@ function render() {
 }
 
 function setImage(img, box, source) {
+  const images = img instanceof NodeList ? Array.from(img) : [img];
   if (source) {
-    img.src = source;
+    images.forEach((image) => {
+      image.src = source;
+    });
     box.classList.add("has-image");
   } else {
-    img.removeAttribute("src");
+    images.forEach((image) => {
+      image.removeAttribute("src");
+    });
     box.classList.remove("has-image");
   }
 }
@@ -222,11 +227,11 @@ async function drawHeader(ctx) {
 
   ctx.fillStyle = "#55c7ee";
   ctx.font = "900 28px Arial";
-  ctx.fillText("RHODES ISLAND :// PROFILE", 238, 112);
+  ctx.fillText("RHODES ISLAND :// PROFILE", 254, 112);
 
   ctx.fillStyle = "#07090c";
-  ctx.font = "900 58px Microsoft YaHei, Arial";
-  ctx.fillText("人事档案", 238, 178);
+  ctx.font = "900 52px Microsoft YaHei, Arial";
+  ctx.fillText("人事档案", 254, 184);
 
   ctx.fillStyle = "#07090c";
   ctx.font = "900 26px Arial";
@@ -309,7 +314,9 @@ function drawTextSections(ctx) {
 
   ctx.fillStyle = "#55c7ee";
   ctx.font = "900 24px Arial";
-  ctx.fillText("PRIMARY OPERATOR", 104, 1024);
+  ctx.font = "900 26px Microsoft YaHei, Arial";
+  ctx.fillText("主推干员", 104, 1024);
+  ctx.font = "900 24px Arial";
   ctx.fillText("RECRUITMENT TARGET", 558, 1024);
 
   ctx.fillStyle = "#07090c";
@@ -338,7 +345,27 @@ function drawSection(ctx, x, y, w, h, label, text, fontSize) {
 }
 
 async function drawShowcase(ctx) {
-  await drawImageBox(ctx, state.showcaseImage, { x: 72, y: 1244, w: 936, h: 230 }, "GAME CARD / DISPLAY IMAGE", "#111820", "#55c7ee", true);
+  const leftRect = { x: 72, y: 1244, w: 444, h: 236 };
+  const rightRect = { x: 564, y: 1244, w: 444, h: 236 };
+
+  if (!state.showcaseImage) {
+    await drawImageBox(ctx, "", leftRect, "GAME CARD", "#111820", "#55c7ee", true);
+    await drawImageBox(ctx, "", rightRect, "DISPLAY IMAGE", "#111820", "#55c7ee", true);
+    return;
+  }
+
+  const image = await loadCanvasImage(state.showcaseImage);
+  drawShowcasePanel(ctx, image, leftRect, 0.25);
+  drawShowcasePanel(ctx, image, rightRect, 0.75);
+}
+
+function drawShowcasePanel(ctx, image, rect, positionX) {
+  ctx.fillStyle = "#111820";
+  ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+  drawCoverImage(ctx, image, rect.x, rect.y, rect.w, rect.h, positionX);
+  ctx.strokeStyle = "#55c7ee";
+  ctx.lineWidth = 5;
+  ctx.strokeRect(rect.x, rect.y, rect.w, rect.h);
 }
 
 function drawFooter(ctx) {
@@ -420,7 +447,7 @@ function loadCanvasImage(source) {
   });
 }
 
-function drawCoverImage(ctx, image, x, y, width, height) {
+function drawCoverImage(ctx, image, x, y, width, height, positionX = 0.5) {
   const imageRatio = image.width / image.height;
   const boxRatio = width / height;
   let sx = 0;
@@ -430,7 +457,7 @@ function drawCoverImage(ctx, image, x, y, width, height) {
 
   if (imageRatio > boxRatio) {
     sw = image.height * boxRatio;
-    sx = (image.width - sw) / 2;
+    sx = (image.width - sw) * positionX;
   } else {
     sh = image.width / boxRatio;
     sy = (image.height - sh) / 2;
