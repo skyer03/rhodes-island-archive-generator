@@ -334,19 +334,27 @@ button:hover {
 
 .identity-block {
   min-width: 0;
-  padding: 44px 52px;
-  border: 5px solid var(--blue);
-  background: rgba(17, 24, 32, 0.98);
-  color: #fff;
+  padding: 34px 46px;
+  border: 5px solid var(--ink);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+}
+
+.id-label {
+  margin: 0;
+  color: var(--ink);
+  font-size: 78px;
+  font-weight: 900;
+  line-height: 0.95;
 }
 
 .identity-block h3 {
-  min-height: 106px;
-  margin: 18px 0 28px;
-  border-bottom: 5px solid var(--blue);
-  color: #fff;
-  font-size: 74px;
-  line-height: 1.08;
+  min-height: 54px;
+  margin: 14px 0 26px;
+  border-bottom: 5px solid var(--ink);
+  color: var(--ink);
+  font-size: 42px;
+  line-height: 1.15;
   word-break: break-word;
 }
 
@@ -360,19 +368,19 @@ dl div {
   display: grid;
   grid-template-columns: 168px 1fr;
   align-items: center;
-  border-bottom: 1px solid rgba(85, 199, 238, 0.26);
+  border-bottom: 2px solid var(--line);
   padding-bottom: 14px;
 }
 
 dt {
-  color: #8aa7b3;
+  color: var(--muted);
   font-size: 25px;
   font-weight: 900;
 }
 
 dd {
   margin: 0;
-  color: #fff;
+  color: var(--ink);
   font-size: 34px;
   font-weight: 900;
 }
