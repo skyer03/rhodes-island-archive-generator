@@ -56,6 +56,7 @@ const state = {
   factionName: FACTIONS[0][0],
   factionLogo: FACTIONS[0][1],
   gender: "未填写",
+  personalId: "",
   age: "",
   height: "",
   weight: "",
@@ -70,6 +71,7 @@ const fields = {
   showcaseInput: document.querySelector("#showcaseInput"),
   factionSelect: document.querySelector("#factionSelect"),
   gender: document.querySelector("#gender"),
+  personalId: document.querySelector("#personalId"),
   age: document.querySelector("#age"),
   height: document.querySelector("#height"),
   weight: document.querySelector("#weight"),
@@ -87,6 +89,7 @@ const preview = {
   faction: document.querySelector("#factionPreview"),
   factionName: document.querySelector("#factionNamePreview"),
   gender: document.querySelector("#genderPreview"),
+  personalId: document.querySelector("#idPreview"),
   age: document.querySelector("#agePreview"),
   height: document.querySelector("#heightPreview"),
   weight: document.querySelector("#weightPreview"),
@@ -104,7 +107,7 @@ const counters = {
 
 populateFactionSelect();
 
-["gender", "age", "height", "weight", "ipAddress", "intro", "favoriteOperator", "recruitmentExpectation"].forEach((id) => {
+["gender", "personalId", "age", "height", "weight", "ipAddress", "intro", "favoriteOperator", "recruitmentExpectation"].forEach((id) => {
   fields[id].addEventListener("input", () => {
     state[id] = fields[id].value.trim();
     render();
@@ -136,6 +139,7 @@ document.querySelector("#resetButton").addEventListener("click", () => {
     factionName: FACTIONS[0][0],
     factionLogo: FACTIONS[0][1],
     gender: "未填写",
+    personalId: "",
     age: "",
     height: "",
     weight: "",
@@ -185,6 +189,7 @@ function render() {
   preview.factionName.textContent = state.factionName;
 
   preview.gender.textContent = state.gender || "未填写";
+  preview.personalId.textContent = state.personalId || "未登记 ID";
   preview.ip.textContent = state.ipAddress || "未登记 IP";
   setMaybeRedacted(preview.age, state.age);
   setMaybeRedacted(preview.height, state.height);
@@ -329,6 +334,8 @@ async function drawMainBlock(ctx) {
   ctx.fillStyle = "#07090c";
   ctx.font = "900 42px Arial";
   ctx.fillText("ID:", 390, 320);
+  ctx.font = fitFont(ctx, state.personalId || "未登记 ID", 390, 28, "Microsoft YaHei, Arial");
+  ctx.fillText(state.personalId || "未登记 ID", 458, 320);
 
   ctx.fillStyle = "#657782";
   ctx.font = "900 17px Arial";
