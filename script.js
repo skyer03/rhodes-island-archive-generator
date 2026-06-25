@@ -239,30 +239,30 @@ async function drawMainBlock(ctx) {
   const avatarRect = { x: 72, y: 280, w: 292, h: 326 };
   await drawImageBox(ctx, state.avatarImage, avatarRect, "OPERATOR\nPHOTO", "#e4ebef", "#07090c", false);
 
-  ctx.fillStyle = "rgba(17,24,32,0.98)";
+  ctx.fillStyle = "#ffffff";
   ctx.fillRect(398, 280, 610, 326);
-  ctx.strokeStyle = "#55c7ee";
+  ctx.strokeStyle = "#07090c";
   ctx.lineWidth = 5;
   ctx.strokeRect(398, 280, 610, 326);
 
-  ctx.fillStyle = "#55c7ee";
-  ctx.font = "900 24px Arial";
-  ctx.fillText("CODENAME", 432, 332);
+  ctx.fillStyle = "#07090c";
+  ctx.font = "900 74px Arial";
+  ctx.fillText("ID:", 432, 356);
 
-  ctx.fillStyle = "#ffffff";
-  ctx.font = fitFont(ctx, state.ipAddress || "未登记 IP", 520, 58, "Microsoft YaHei, Arial");
-  drawWrappedText(ctx, state.ipAddress || "未登记 IP", 432, 404, 520, 64, 1.12);
+  ctx.fillStyle = "#07090c";
+  ctx.font = fitFont(ctx, state.ipAddress || "未登记 IP", 520, 42, "Microsoft YaHei, Arial");
+  drawWrappedText(ctx, state.ipAddress || "未登记 IP", 432, 420, 520, 52, 1.15);
 
-  ctx.strokeStyle = "#55c7ee";
+  ctx.strokeStyle = "#07090c";
   ctx.lineWidth = 5;
   ctx.beginPath();
-  ctx.moveTo(432, 470);
-  ctx.lineTo(966, 470);
+  ctx.moveTo(432, 456);
+  ctx.lineTo(966, 456);
   ctx.stroke();
 
-  drawInfoRow(ctx, "GENDER", state.gender || "未填写", 432, 522, false, true);
-  drawInfoRow(ctx, "HEIGHT", state.height, 432, 578, true, true);
-  drawInfoRow(ctx, "WEIGHT", state.weight, 432, 634, true, true);
+  drawInfoRow(ctx, "GENDER", state.gender || "未填写", 432, 512, false, false);
+  drawInfoRow(ctx, "HEIGHT", state.height, 432, 574, true, false);
+  drawInfoRow(ctx, "WEIGHT", state.weight, 432, 636, true, false);
 }
 
 function drawInfoRow(ctx, label, value, x, y, redactWhenEmpty, dark) {
