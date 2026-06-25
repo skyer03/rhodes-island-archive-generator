@@ -254,6 +254,8 @@ button:hover {
 .record-title {
   flex: 1;
   min-width: 0;
+  padding-left: 16px;
+  transform: translateY(6px);
 }
 
 .record-header p,
@@ -265,9 +267,9 @@ button:hover {
 }
 
 .record-header h2 {
-  margin: 8px 0 0;
+  margin: 12px 0 0;
   color: var(--ink);
-  font-size: 58px;
+  font-size: 52px;
   line-height: 1;
 }
 
@@ -288,7 +290,7 @@ button:hover {
 }
 
 .avatar-box,
-.showcase-box {
+.showcase-panel {
   position: relative;
   overflow: hidden;
   display: grid;
@@ -305,7 +307,7 @@ button:hover {
 }
 
 .avatar-box img,
-.showcase-box img {
+.showcase-panel img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -313,17 +315,17 @@ button:hover {
 }
 
 .avatar-box.has-image img,
-.showcase-box.has-image img {
+.showcase-box.has-image .showcase-panel img {
   display: block;
 }
 
 .avatar-box.has-image span,
-.showcase-box.has-image span {
+.showcase-box.has-image .showcase-panel span {
   display: none;
 }
 
 .avatar-box span,
-.showcase-box span {
+.showcase-panel span {
   padding: 12px;
   color: #6c7b84;
   font-size: 28px;
@@ -451,13 +453,27 @@ dd {
 .showcase-box {
   position: relative;
   z-index: 2;
-  height: 230px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  height: 280px;
   margin-top: 34px;
+}
+
+.showcase-panel {
   border-color: var(--blue);
   background-color: var(--panel);
 }
 
-.showcase-box span {
+.showcase-panel-left img {
+  object-position: 25% center;
+}
+
+.showcase-panel-right img {
+  object-position: 75% center;
+}
+
+.showcase-panel span {
   color: #a7d7e7;
 }
 
