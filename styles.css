@@ -480,8 +480,4 @@ dd {
   h1 {
     font-size: 24px;
   }
-
-  .record-card {
-    width: min(100%, 540px);
-  }
 }
