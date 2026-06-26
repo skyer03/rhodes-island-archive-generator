@@ -334,7 +334,7 @@ async function drawMainBlock(ctx) {
   ctx.fillStyle = "#07090c";
   ctx.font = "900 42px Arial";
   ctx.fillText("ID:", 390, 320);
-  ctx.font = fitFont(ctx, state.personalId || "未登记 ID", 390, 28, "Microsoft YaHei, Arial");
+  ctx.font = fitFont(ctx, state.personalId || "未登记 ID", 460, 42, "Microsoft YaHei, Arial");
   ctx.fillText(state.personalId || "未登记 ID", 458, 320);
 
   ctx.fillStyle = "#657782";
@@ -380,7 +380,7 @@ function drawInfoRow(ctx, label, value, x, y, redactWhenEmpty, dark) {
 }
 
 function drawTextSections(ctx) {
-  drawSection(ctx, 72, 580, 936, 352, "SELF INTRODUCTION", state.intro || "暂无自我介绍。", 36);
+  drawSection(ctx, 72, 580, 936, 352, "SELF INTRODUCTION", state.intro || "暂无自我介绍。", 28);
 
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(72, 970, 414, 238);
@@ -398,12 +398,12 @@ function drawTextSections(ctx) {
   ctx.fillText("RECRUITMENT TARGET", 558, 1024);
 
   ctx.fillStyle = "#07090c";
-  ctx.font = fitFont(ctx, state.favoriteOperator || "暂未填写", 330, 48, "Microsoft YaHei, Arial");
-  drawWrappedText(ctx, state.favoriteOperator || "暂未填写", 104, 1090, 330, 90, 1.25);
+  ctx.font = fitFont(ctx, state.favoriteOperator || "暂未填写", 330, 34, "Microsoft YaHei, Arial");
+  drawWrappedText(ctx, state.favoriteOperator || "暂未填写", 104, 1082, 330, 98, 1.25);
 
   ctx.fillStyle = "#15191d";
-  ctx.font = "32px Microsoft YaHei, Arial";
-  drawWrappedText(ctx, state.recruitmentExpectation || "暂未填写招聘对象期望。", 558, 1086, 390, 110, 1.45);
+  ctx.font = "26px Microsoft YaHei, Arial";
+  drawWrappedText(ctx, state.recruitmentExpectation || "暂未填写招聘对象期望。", 558, 1082, 390, 118, 1.45);
 }
 
 function drawSection(ctx, x, y, w, h, label, text, fontSize) {
